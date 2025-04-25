@@ -7,7 +7,7 @@ using namespace std;
 
 class Pokemon {
     public:
-        Pokemon();
+        Pokemon(string Nom, int HP, string attaque, int degat, string type1, string type2="");
         virtual void attaquer(Pokemon* cible);
         virtual string interagir();
         

@@ -15,7 +15,7 @@ public:
 
 protected:
     std::string nom;
-    std::vector<std::string> types;
+    vector<std::string> types;
     int HP;
     std::string attaque;
     int degat;

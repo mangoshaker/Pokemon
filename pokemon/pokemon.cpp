@@ -16,10 +16,17 @@ Pokemon::Pokemon(string Nom, int hp, string Attaque, int Degat, string type1, st
     if (type2 != "") types.push_back(type2);
 }
 
+/**
+ * @brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
+ */
 void Pokemon::attaquer(Pokemon* cible) {
     cout << nom << " attaque " << cible->nom << " avec " << attaque << " !" << endl;
 }
 
+/**
+ * @brief affiche un petit message sur le pokemon
+ * @return string contenant le message
+ */
 string Pokemon::interagir()
 {
     string message = nom.substr(0, 4) + nom.substr(0, 4) + ", je suis " + nom + "!";
@@ -27,6 +34,9 @@ string Pokemon::interagir()
     return message;
 }
 
+/**
+ * @brief affiche les infos des pokemons
+ */
 void Pokemon::infoPokemon()
 {
     cout << "Nom: " << nom << ", HP: " << HP << ", Attaque: " << attaque << ", Dégats: " << degat << endl;

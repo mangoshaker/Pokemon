@@ -10,6 +10,7 @@
                 "-g",
                 "main.cpp",
                 "pokemon/pokemon.cpp",
+                "pokemon/typeChart.cpp",
                 "-o",
                 "main.exe"
             ],

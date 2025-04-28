@@ -11,11 +11,11 @@ namespace typechart{
     public : 
         TypeChart();
         float getMult(pokemon::Pokemon* attaquant, pokemon::Pokemon* defenseur);
+        void afficherTypeChart();
     protected:
         std::map<std::pair<std::string, std::string>, float> tablemult;
-        std::map<std::pair<std::string, std::string>, float> fillMap();
     private:
-        void chargerTypeChart(const std::string& filename);
+        void creationTypeChart(const std::string& filename);
     };
 }
 #endif

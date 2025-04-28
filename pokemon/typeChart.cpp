@@ -1,4 +1,5 @@
 #include "pokemon.h"
+#include "typeChart.h"
 #include <iostream>
 #include <map>
 #include <fstream>
@@ -8,16 +9,16 @@ using namespace std;
 using namespace pokemon;
 using namespace typechart;
 
-TypeChart(){
-    map<pair<string, string>, float> tablemult;
-    //tablemult = fonction qui remplie la map
+map<pair<string, string>, float> tablemult;
+
+TypeChart::TypeChart(){
+    creationTypeChart("pokemon/Ressources/tabfaiblesseresistance.csv");
 }
 
-map<string,map<string,float>> fillMap(){
-
-}
-
-void chargerTypeChart(const string& filename) {
+/**
+ * @brief Remplie la map des faiblesses/résistances
+ */
+void TypeChart::creationTypeChart(const string& filename) {
     ifstream fichier(filename);
     if (!fichier.is_open()) {
         cerr << "Erreur : impossible d'ouvrir le fichier " << filename << endl;
@@ -44,3 +45,11 @@ void chargerTypeChart(const string& filename) {
     fichier.close();
 }
 
+/**
+ * @brief Affiche TypeChart
+ */
+void TypeChart::afficherTypeChart() {
+    for (const auto& entry : tablemult) {
+        cout << entry.first.first << " -> " << entry.first.second << " : " << entry.second << endl;
+    }
+}

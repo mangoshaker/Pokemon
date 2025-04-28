@@ -4,7 +4,7 @@
 #include <string>
 
 using namespace std;
-using namespace pokemon;
+using namespace pokemon; //lkjjhjhg
 
 Pokemon::Pokemon(string Nom, int hp, string Attaque, int Degat, string type1, string type2)
 {

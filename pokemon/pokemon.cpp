@@ -13,7 +13,7 @@ Pokemon::Pokemon(string Nom, int hp, string Attaque, int Degat, string type1, st
     attaque = Attaque;
     degat = Degat;
     types.push_back(type1);
-    if (type2 != "") types.push_back(type2);
+    if (type2 != "") types.push_back(type2); 
 }
 
 /**

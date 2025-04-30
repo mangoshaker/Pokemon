@@ -4,7 +4,7 @@
 #include <string>
 
 using namespace std;
-using namespace pokemon; //lkjjhjhg
+using namespace pokemon; 
 
 Pokemon::Pokemon(string Nom, int hp, string Attaque, int Degat, string type1, string type2)
 {
@@ -29,8 +29,13 @@ string Pokemon::interagir()
 
 void Pokemon::infoPokemon()
 {
-    cout << "Nom: " << nom << ", HP: " << HP << ", Attaque: " << attaque << ", Dégats: " << degat << endl;
+    cout << "Nom: " << nom << ", HP: " << HP << ", Attaque: " << attaque << ", Degats: " << degat << endl;
     for (string s : types) {
         cout << "Type: " << s << endl;
     }
 }
+
+string Pokemon::getNom() const {
+    return nom;
+}
+

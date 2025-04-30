@@ -10,6 +10,7 @@
                 "-g",
                 "main.cpp",
                 "pokemon/pokemon.cpp",
+                "entraineur/entraineur.cpp",
                 "-o",
                 "main.exe"
             ],

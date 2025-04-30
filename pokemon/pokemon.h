@@ -12,6 +12,8 @@ public:
     virtual void attaquer(Pokemon* cible);
     virtual std::string interagir();
     void infoPokemon();
+    std::string getNom() const;
+
 
 protected:
     std::string nom;
@@ -19,6 +21,8 @@ protected:
     int HP;
     std::string attaque;
     int degat;
+
+
 };
 }
 

@@ -10,7 +10,7 @@ namespace typechart{
     class TypeChart{
     public : 
         TypeChart();
-        float getMult(pokemon::Pokemon* attaquant, pokemon::Pokemon* defenseur);
+        //float getMult(pokemon::Pokemon* attaquant, pokemon::Pokemon* defenseur);
         void afficherTypeChart();
     protected:
         std::map<std::pair<std::string, std::string>, float> tablemult;

@@ -24,7 +24,7 @@ void testTypeChart(){
 }
 
 int main() {
-    //testPokemon();
+    testPokemon();
     //testTypeChart();
     system("pause"); 
     return 0;

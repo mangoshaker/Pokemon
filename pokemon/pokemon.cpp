@@ -16,6 +16,13 @@ Pokemon::Pokemon(string Nom, int hp, string Attaque, int Degat, string type1, st
     if (type2 != "") types.push_back(type2);
 }
 
+/**
+ * @brief Retourne les types du pokemon
+ */
+const vector<string>& Pokemon::getTypes() const{
+    return this->types;
+}
+
 void Pokemon::attaquer(Pokemon* cible) {
     cout << nom << " attaque " << cible->nom << " avec " << attaque << " !" << endl;
 }

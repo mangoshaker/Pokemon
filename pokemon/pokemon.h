@@ -12,6 +12,7 @@ public:
     virtual void attaquer(Pokemon* cible);
     virtual std::string interagir();
     void infoPokemon();
+    const std::vector<std::string>& getTypes() const;
 
 protected:
     std::string nom;

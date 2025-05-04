@@ -33,8 +33,8 @@ void TypeChart::creationTypeChart(const string& filename) {
         string attaquant, defenseur, multiplicateurStr;
         
         // Lire les trois colonnes séparées par des virgules
-        getline(ss, attaquant, ',');
         getline(ss, defenseur, ',');
+        getline(ss, attaquant, ',');
         getline(ss, multiplicateurStr, ',');
 
         float multiplicateur = stof(multiplicateurStr);
@@ -51,5 +51,34 @@ void TypeChart::creationTypeChart(const string& filename) {
 void TypeChart::afficherTypeChart() {
     for (const auto& entry : tablemult) {
         cout << entry.first.first << " -> " << entry.first.second << " : " << entry.second << endl;
+    }
+}
+
+/**
+ * @brief Renvoie le multiplicateur de dégats en fonction des types du pokemon attaquant et ceux du defenseur
+ */
+float TypeChart::getMult(Pokemon* attaquant, Pokemon* defenseur){
+    float mult = 1;
+    const vector<string>& typesAtt = attaquant->getTypes();
+    const vector<string>& typesDef = defenseur->getTypes();
+
+    for (const string& typeA : typesAtt){
+        for(const string& typeD: typesDef){
+            mult*=getMultIndiv(typeA,typeD);
+        }
+    }
+    
+    return mult;
+}
+
+/**
+ * @brief renvoie le multiplicateur associé à deux types
+ */
+float TypeChart::getMultIndiv(const string& type_att, const string& type_def) {
+    auto it = tablemult.find({type_att, type_def});
+    if (it != tablemult.end()) {
+        return it->second;
+    } else {
+        return 1.0f; // Pas de faiblesse ou de résistance particulière
     }
 }

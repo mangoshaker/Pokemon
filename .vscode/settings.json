@@ -56,5 +56,11 @@
         "optional": "cpp",
         "sstream": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "json.schemas": [
+    {
+        "fileMatch": ["/.vscode/tasks.json"],
+        "url": "ignore"
+    }
+]
 }

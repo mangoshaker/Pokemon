@@ -11,6 +11,7 @@
                 "main.cpp",
                 "pokemon/pokemon.cpp",
                 "pokemon/typeChart.cpp",
+                "entraineur/entraineur.cpp",
                 "-o",
                 "main.exe"
             ],

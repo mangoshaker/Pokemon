@@ -9,7 +9,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "main.cpp",
-                "pokemon/Pokemon.cpp",
+                "pokemon/pokemon.cpp",
                 "pokemon/typeChart.cpp",
                 "-o",
                 "main.exe"
@@ -27,5 +27,4 @@
             "detail": "Compile tout le projet proprement."
         }
     ]
-  }
-  
+}  

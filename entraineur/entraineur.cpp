@@ -5,7 +5,7 @@
 
 
 using namespace std;
-using namespace Entraineur;
+using namespace entraineur;
 
 Entraineur::Entraineur::Entraineur(const string& Nom)
 {

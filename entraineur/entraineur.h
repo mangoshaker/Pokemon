@@ -6,7 +6,7 @@
 #include <string> 
 #include "../pokemon/pokemon.h"
 
-namespace Entraineur{ 
+namespace entraineur{ 
 class Entraineur{
 protected:
     std::string nom;

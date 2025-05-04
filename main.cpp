@@ -7,7 +7,7 @@
 using namespace std;
 using namespace pokemon;
 using namespace typechart;
-using namespace Entraineur;
+using namespace entraineur;
 
 void testPokemon() {
     Pokemon pikachu("Pikachu", 35, "Eclair", 55, "Electrik");
@@ -28,8 +28,8 @@ void testTypeChart(){
 
 void testEntraineur()
 {
-    pokemon::Pokemon* pikachu = new pokemon::Pokemon("Pikachu", 35, "Eclair", 55, "Electrik");
-    Entraineur::Entraineur* chlo = new Entraineur::Entraineur("Chlo");
+    Pokemon* pikachu = new Pokemon("Pikachu", 35, "Eclair", 55, "Electrik");
+    Entraineur* chlo = new Entraineur("Chlo");
 
     chlo->ajouterPokemon(pikachu);
 
@@ -40,7 +40,6 @@ void testEntraineur()
 }
 
 int main() {
-    system("chcp 65001 > nul"); //active UTF-8
     testPokemon();
     //testTypeChart();
     testEntraineur(); 

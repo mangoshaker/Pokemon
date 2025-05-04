@@ -23,13 +23,6 @@ const vector<string>& Pokemon::getTypes() const{
     return this->types;
 }
 
-/**
- * @brief Retourne les types du pokemon
- */
-const vector<string>& Pokemon::getTypes() const{
-    return this->types;
-}
-
  /**
   *  @brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
  */

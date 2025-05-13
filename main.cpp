@@ -61,6 +61,33 @@ void testEntraineur()
     delete chlo; 
 }
 
+void testEntraineurCie(){
+    try {
+        // === 1. Charger les maîtres depuis le fichier CSV
+        vector<Maitre*> maitres = MaitreLoader::chargerDepuisCSV();
+        cout << "=== Maîtres Pokémon chargés ===" << endl;
+
+        for (Maitre* m : maitres) {
+            cout << "\nNom : " << m->getNom() << endl;
+            cout << m->interagir() << endl;
+
+            cout << "--- Équipe de " << m->getNom() << " ---" << endl;
+            for (Pokemon* p : m->getEquipe()) {
+                p->infoPokemon();
+                cout << "------------------------" << endl;
+            }
+
+            // ✅ 2. Test de l'attaque du Pokémon sélectionné
+            Pokemon* cible = new Pokemon("Pikachu", 35, "Éclair", 55, "Electrik");
+            cout << "\n[TEST] " << m->getNom() << " utilise son premier Pokémon pour attaquer :" << endl;
+            m->getPokemonSelec()->attaquer(cible);
+            delete cible;
+        }
+
+    } catch (const exception& e) {
+        cerr << "\nErreur pendant l'exécution : " << e.what() << endl;
+    }
+}
 /// @brief Test de la classe Combat
 void testCombat() {
     // Création des Pokémon pour le joueur
@@ -112,35 +139,9 @@ void testCombat() {
 int main() {
     //testPokemon();
     //testTypeChart();
-    ////testEntraineur(); 
-    testCombat();
-    //system("pause");
-    try {
-        // === 1. Charger les maîtres depuis le fichier CSV
-        vector<Maitre*> maitres = MaitreLoader::chargerDepuisCSV();
-        cout << "=== Maîtres Pokémon chargés ===" << endl;
-
-        for (Maitre* m : maitres) {
-            cout << "\nNom : " << m->getNom() << endl;
-            cout << m->interagir() << endl;
-
-            cout << "--- Équipe de " << m->getNom() << " ---" << endl;
-            for (Pokemon* p : m->getEquipe()) {
-                p->infoPokemon();
-                cout << "------------------------" << endl;
-            }
-
-            // ✅ 2. Test de l'attaque du Pokémon sélectionné
-            Pokemon* cible = new Pokemon("Pikachu", 35, "Éclair", 55, "Electrik");
-            cout << "\n[TEST] " << m->getNom() << " utilise son premier Pokémon pour attaquer :" << endl;
-            m->getPokemonSelec()->attaquer(cible);
-            delete cible;
-        }
-
-    } catch (const exception& e) {
-        cerr << "\nErreur pendant l'exécution : " << e.what() << endl;
-    }
-
+    //testEntraineur(); 
+    //testCombat();   
+    testEntraineurCie();
     system("pause");
     return 0;
 }

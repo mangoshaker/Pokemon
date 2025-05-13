@@ -12,6 +12,13 @@
                 "pokemon/pokemon.cpp",
                 "pokemon/typeChart.cpp",
                 "entraineur/entraineur.cpp",
+                "entraineur/joueur.cpp",
+                "entraineur/leaderGym.cpp",
+                "entraineur/maitre.cpp",
+                "pokemonLoader/pokemonLoader.cpp",
+                "entraineur/joueurLoader/joueurLoader.cpp",
+                "entraineur/leaderLoader/leaderLoader.cpp",
+                "entraineur/maitreLoader/maitreLoader.cpp",
                 "-o",
                 "main.exe"
             ],

@@ -16,7 +16,7 @@ string Entraineur::Entraineur::getNom() const{
     return nom; 
 }
 
-vector<pokemon::Pokemon*>& Entraineur::Entraineur::getEquipe()
+const vector<pokemon::Pokemon*>& Entraineur::Entraineur::getEquipe() const
 {
     return equipe;
 }

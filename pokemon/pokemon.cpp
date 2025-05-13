@@ -4,16 +4,16 @@
 #include <string>
 
 using namespace std;
-using namespace pokemon; 
 
-Pokemon::Pokemon(string Nom, int hp, string Attaque, int Degat, string type1, string type2)
-{
-    nom = Nom;
-    HP = hp;
-    attaque = Attaque;
-    degat = Degat;
+using namespace pokemon;
+
+Pokemon::Pokemon(std::string Nom, int HP, std::string attaque, int degat, std::string type1, std::string type2) {
+    this->nom = Nom;
+    this->HP = HP;
+    this->attaque = attaque;
+    this->degat = degat;
     types.push_back(type1);
-    if (type2 != "") types.push_back(type2); 
+    if (!type2.empty()) types.push_back(type2);
 }
 
 /**
@@ -22,9 +22,19 @@ Pokemon::Pokemon(string Nom, int hp, string Attaque, int Degat, string type1, st
 const vector<string>& Pokemon::getTypes() const{
     return this->types;
 }
+const string Pokemon::getNom() const {
+    return nom;
+}
 
- /**
-  *  @brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
+const int Pokemon::getHP()const{
+    return HP;
+}
+const int Pokemon::getDegat()const{
+    return degat;
+}
+
+/**
+ *  @brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
  */
 void Pokemon::attaquer(Pokemon* cible) {
     cout << nom << " attaque " << cible->nom << " avec " << attaque << " !" << endl;
@@ -52,7 +62,8 @@ void Pokemon::infoPokemon()
     }
 }
 
-string Pokemon::getNom() const {
-    return nom;
+Pokemon::~Pokemon() {
 }
+
+
 

@@ -6,7 +6,6 @@
 
 using namespace std;
 using namespace entraineur;
-
 Entraineur::Entraineur::Entraineur(const string& Nom)
 {
     nom=Nom; 
@@ -75,13 +74,15 @@ string Entraineur::Entraineur::interagir()
 /**
  * @brief: liberation memoire 
  */
-Entraineur::Entraineur::~Entraineur()
-{
-    for(pokemon::Pokemon* p : equipe)
-    {
-        delete p; 
+Entraineur::~Entraineur() {
+    for (pokemon::Pokemon*& p : equipe) {
+        if (p != nullptr) {
+            delete p;
+            p = nullptr;
+        }
     }
 }
+
 
 
 

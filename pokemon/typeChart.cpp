@@ -8,7 +8,6 @@
 using namespace std;
 using namespace pokemon;
 using namespace typechart;
-
 map<pair<string, string>, float> tablemult;
 
 TypeChart::TypeChart(){

@@ -1,20 +1,23 @@
 #ifndef COMBAT_H
 #define COMBAT_H
-#include "entraineur.h"
-//#include "pokemon.h"
-#include "typeChart.h"
+#include "../entraineur/entraineur.h"
+#include "../pokemon/pokemon.h"
+#include "../pokemon/typeChart.h"
 #include <iostream> 
 #include <vector>
 #include <string>
 
 using namespace entraineur;
 using namespace typechart;
-//using namespace pokemon;
+using namespace pokemon;
 
 namespace combat{
     class Combat{
         public:
+            Combat(Entraineur* Joueur, Entraineur* Adversaire);
             void start_partie();
+            ~Combat();
+        
         private:
             int tour;
             Entraineur* joueur;
@@ -28,13 +31,20 @@ namespace combat{
             /// @param pos_HP_def position du HP du défenseur
             /// @param HP tableau des HP
             /// @return True quand il faut changer le pokemon du defenseur, false sinon
-            bool Combat::combattre(Pokemon* attaquant, Pokemon* defenseur, int pos_HP_def, float[2] HP);
+            bool combattre(Pokemon* attaquant, Pokemon* defenseur, int pos_HP_def, float HP[2]);
             /// @brief Simule le combat des pokémons
             /// @param ind_joue 
             /// @param ind_adver 
             /// @param HP 
             /// @return l'Entraineur gagnant
-            Entraineur* Combat::tour(int ind_joue, int ind_adver, float[2] HP);
+            Entraineur* tour_jeu(float HP[2]);
+            /// @brief Détecte la fin du jeu
+            /// @param HP 
+            /// @param ind_joue 
+            /// @param ind_adver 
+            /// @return True si le jeu est fini, False sinon
+            bool finJeu(float HP[2], int ind_joue, int ind_adver);
+           
     };
 }
 

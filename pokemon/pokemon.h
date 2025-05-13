@@ -13,8 +13,10 @@ public:
     virtual std::string interagir();
     void infoPokemon();
     const std::vector<std::string>& getTypes() const;
-    std::string getNom() const;
-
+    const std::string getNom() const;
+    const int getHP()const;
+    const int getDegat()const;
+    virtual ~Pokemon();
 
 protected:
     std::string nom;

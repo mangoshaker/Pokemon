@@ -61,7 +61,7 @@
     "json.schemas": [
     {
         "fileMatch": ["/.vscode/tasks.json"],
-        "url": "ignore"
+        "url": "/ignore"
     }
 ]
 }

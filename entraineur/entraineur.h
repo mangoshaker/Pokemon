@@ -17,7 +17,7 @@ public:
 
     //Getters
     std::string getNom() const;
-    std::vector<pokemon::Pokemon*>& getEquipe();
+    const std::vector<pokemon::Pokemon*>& getEquipe() const;
     pokemon::Pokemon* getPokemonSelec(); //renvoie le 1er pokemon de la liste
 
     //Gestion equipe 
@@ -26,6 +26,8 @@ public:
 
     //Methode virtuelle pour l'interaction 
     virtual std::string interagir();
+    
+
 
     virtual ~Entraineur(); //liberation memoire
 

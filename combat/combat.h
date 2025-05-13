@@ -15,6 +15,7 @@ namespace combat{
     class Combat{
         public:
             Combat(Entraineur* Joueur, Entraineur* Adversaire);
+            /// @brief Lance la partie
             void start_partie();
             ~Combat();
         

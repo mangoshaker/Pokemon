@@ -18,10 +18,16 @@ namespace joueurLoader{
             void ajouterJoueur(Joueur* nouveau) ;
         
         private:
-            // Charge tous les joueurs depuis joueur.csv
+            /// @brief Charge tous les joueurs depuis joueur.csv
+            /// @return 
             static std::vector<joueur::Joueur*> chargerDepuisCSV();            
             // Enregistre un joueur à la fin du fichier joueur.csv
+
+            /// @brief ajoute un joueur a joueur.csv
+            /// @param joueur 
             static void enregistrerDansCSV(const joueur::Joueur& joueur);
+
+            /// @brief  vectors de joueur pour le stockage
             std::vector<Joueur*> joueurs;
         };
 }

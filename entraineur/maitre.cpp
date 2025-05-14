@@ -44,6 +44,7 @@ Maitre::Maitre(const string& nom, const vector<string>& nomsPokemon)
     }
 }
 
+/// @brief affichage pour annoncer le maitre
 void Maitre::interagir() {
     cout << getNom() << " : Je suis le Maitre Pokemon !" << endl;
 }

@@ -89,13 +89,13 @@ Entraineur* Combat::tour_jeu(float HP[2]){
         bool perdu = false;
 
         if(this->tour == 0 ){ //Joueur qui attaque
-            cout<<"[Joueur] ";
+            cout<<"["<<joueur->getNom()<<"] ";
             eq_joue[ind_joue]->attaquer(eq_adver[ind_adver]);
             perdu=combattre(eq_joue[ind_joue],eq_adver[ind_adver],1 , HP);
             this->tour=1;
         } 
         else {  //Adversaire qui attaque
-            cout<<"[Rival] ";
+            cout<<"["<<adversaire->getNom()<<"] ";
             eq_adver[ind_adver]->attaquer(eq_joue[ind_joue]);
             perdu=combattre(eq_adver[ind_adver],eq_joue[ind_joue],0,HP);
             this->tour=0;
@@ -105,12 +105,12 @@ Entraineur* Combat::tour_jeu(float HP[2]){
             if (this->tour==1 && ind_adver<eq_adver.size()-1) {
                 ind_adver++;
                 HP[1]=eq_adver[ind_adver]->getHP();
-                cout<<"-> Nouveau Pokemon de [Rival] : "<<eq_adver[ind_adver]->getNom() << " entre en jeu !" <<endl;
+                cout<<"-> Nouveau Pokemon de ["<<adversaire->getNom()<<"] : "<<eq_adver[ind_adver]->getNom() << " entre en jeu !" <<endl;
             }
             else if (this->tour==0 && ind_joue +1<eq_joue.size()-1) {
                 ind_joue++;
                 HP[0]=eq_joue[ind_joue]->getHP();
-                cout<<"-> Nouveau Pokemon de [Joueur] : " << eq_joue[ind_joue]->getNom() << " entre en jeu !" << endl;
+                cout<<"-> Nouveau Pokemon de ["<<joueur->getNom()<<"] : " << eq_joue[ind_joue]->getNom() << " entre en jeu !" << endl;
             }
         }
         tour_count++; 

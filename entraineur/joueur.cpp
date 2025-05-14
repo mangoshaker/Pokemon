@@ -36,7 +36,20 @@ Joueur::Joueur(const string& nom, const vector<string>& nomPokemon)
 }
 
 
+//Getters
+int Joueur::getNbBadges() const {return nb_badges; }
+int Joueur::getNbGagne() const {return nb_gagne;}
+int Joueur::getNbPerdu() const {return nb_perdu;}
+
+//Setters incrementer 
+void Joueur::ajouterGagne() { nb_gagne++ ; }
+void Joueur::ajouterPerdu() { nb_perdu++;}
+
+
+
 // Nouveaux getters et setters pour badges
+/// @brief ajout d'un badge selon son type
+/// @param badgeType 
 void Joueur::ajouterBadge(const string& badgeType) {
     if (!badges[badgeType]) {
         badges[badgeType] = true;
@@ -74,14 +87,7 @@ bool Joueur::estPretPourAffronterMaitre() const {
     return true;  // Tous les badges présents
 }
 
-//Getters
-int Joueur::getNbBadges() const {return nb_badges; }
-int Joueur::getNbGagne() const {return nb_gagne;}
-int Joueur::getNbPerdu() const {return nb_perdu;}
 
-//Setters incrementer 
-void Joueur::ajouterGagne() { nb_gagne++ ; }
-void Joueur::ajouterPerdu() { nb_perdu++;}
 
 /// @brief Affiche les stats du joueur dans la console
 void Joueur::afficherStatistiques() const {

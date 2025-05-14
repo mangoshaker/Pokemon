@@ -9,6 +9,7 @@ using namespace std;
 using namespace entraineur;
 using namespace pokemon;
 
+//constructeur, getters, setters
 Entraineur::Entraineur::Entraineur(const string& Nom)
 {
     nom=Nom; 
@@ -34,9 +35,11 @@ pokemon::Pokemon* Entraineur::Entraineur::getPokemonSelec()
     }
     return nullptr;
 }
+
 void Entraineur::setGagnant(bool etat) {
     gagnant = etat;
 }
+
 
 
 /** 
@@ -57,7 +60,6 @@ void Entraineur::Entraineur::ajouterPokemon(pokemon::Pokemon* p)
 /**
  * @brief : changement de position de 2 Pokemon dans l'equipe
  */
-
 void Entraineur::Entraineur::modifierEquipe(int pos1, int pos2)
 {
     if (pos1 >=0 && pos1 < equipe.size() && pos2 >= 0 && pos2 < equipe.size() )
@@ -97,6 +99,7 @@ Entraineur::~Entraineur() {
         }
     }
 }
+
 /// @brief Affiche la composition de l'équipe dans la console
 void Entraineur::afficherEquipe() const {
     if (equipe.empty()) {

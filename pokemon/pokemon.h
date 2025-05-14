@@ -31,6 +31,8 @@ public:
     /// @return int = dégât provoqué
     const int getDegat()const;
     virtual ~Pokemon();
+    /// @brief pour pouvoir creer une clone pour le maitre (calcul de *1.25 sur le degat)
+    /// @param nouveauDegat 
     void setDegat(float nouveauDegat);
 
 protected:

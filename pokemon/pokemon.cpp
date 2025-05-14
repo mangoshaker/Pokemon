@@ -7,6 +7,13 @@ using namespace std;
 
 using namespace pokemon;
 
+/// @brief constructeur Pokemon
+/// @param Nom 
+/// @param HP 
+/// @param attaque 
+/// @param degat 
+/// @param type1 
+/// @param type2 
 Pokemon::Pokemon(std::string Nom, int HP, std::string attaque, int degat, std::string type1, std::string type2) {
     this->nom = Nom;
     this->HP = HP;
@@ -15,6 +22,8 @@ Pokemon::Pokemon(std::string Nom, int HP, std::string attaque, int degat, std::s
     types.push_back(type1);
     if (!type2.empty()) types.push_back(type2);
 }
+
+// les getters
 
 /// @brief Accède aux types du pokemon
 /// @return vecteur contenant le ou les types du pokemon
@@ -39,6 +48,9 @@ const int Pokemon::getDegat()const{
     return degat;
 }
 
+//setter 
+/// @brief pour pouvoir creer une clone pour le maitre (calcul de *1.25 sur le degat)
+/// @param nouveauDegat 
 void Pokemon::setDegat(float nouveauDegat) {
     this->degat = nouveauDegat;
 }

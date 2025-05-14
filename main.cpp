@@ -273,6 +273,7 @@ void Test(){
 }
 
 int main() {
+    system("chcp 65001 > nul"); // Active UTF-8 pour la console Windows
     Jeu jeu;
     jeu.StartJeu();
     system("pause");

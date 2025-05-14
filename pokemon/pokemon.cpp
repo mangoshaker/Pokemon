@@ -16,19 +16,25 @@ Pokemon::Pokemon(std::string Nom, int HP, std::string attaque, int degat, std::s
     if (!type2.empty()) types.push_back(type2);
 }
 
-/**
- * @brief Retourne les types du pokemon
- */
+/// @brief Accède aux types du pokemon
+/// @return vecteur contenant le ou les types du pokemon
 const vector<string>& Pokemon::getTypes() const{
     return this->types;
 }
+/// @brief Accède au nom du pokemon
+/// @return string = nom du pokemon
 const string Pokemon::getNom() const {
     return nom;
 }
 
+/// @brief Accède aux HP du pokemon
+/// @return int = HP de départ
 const int Pokemon::getHP()const{
     return HP;
 }
+
+/// @brief Accède aux dégâts provoqués par l'attaque du pokemon
+/// @return int = dégât provoqué
 const int Pokemon::getDegat()const{
     return degat;
 }
@@ -44,20 +50,15 @@ void Pokemon::attaquer(Pokemon* cible) {
     cout << nom << " attaque " << cible->nom << " avec " << attaque << " !" << endl;
 }
 
-/**
- * @brief affiche un petit message sur le pokemon
- * @return string contenant le message
- */
-string Pokemon::interagir()
+
+/// @brief affiche un petit message sur le pokemon
+void Pokemon::interagir()
 {
     string message = nom.substr(0, 4) + nom.substr(0, 4) + ", je suis " + nom + "!";
     cout << message << endl;
-    return message;
 }
 
-/**
- * @brief affiche les infos des pokemons
- */
+/// @brief affiche les infos des pokemons
 void Pokemon::infoPokemon()
 {
     cout << "Nom: " << nom << ", HP: " << HP << ", Attaque: " << attaque << ", Degats: " << degat << endl;

@@ -12,7 +12,9 @@
 #include "entraineur/leaderLoader/leaderLoader.h"
 #include "entraineur/maitreLoader/maitreLoader.h"
 #include "entraineur/maitre.h"
+#include "interaction/interaction.h"
 
+using namespace interaction;
 using namespace std;
 using namespace pokemon;
 using namespace typechart;
@@ -55,7 +57,7 @@ void testEntraineur()
 
     chlo->ajouterPokemon(pikachu);
 
-    cout<< chlo->interagir() <<endl;
+    chlo->interagir() ;
 
     cout<<"1er pokemon : "<<chlo->getPokemonSelec()->getNom()<<endl;
     delete chlo; 
@@ -69,7 +71,7 @@ void testEntraineurCie(){
 
         for (Maitre* m : maitres) {
             cout << "\nNom : " << m->getNom() << endl;
-            cout << m->interagir() << endl;
+            m->interagir() ;
 
             cout << "--- Équipe de " << m->getNom() << " ---" << endl;
             for (Pokemon* p : m->getEquipe()) {
@@ -189,7 +191,37 @@ void gererCombatFinalJoueurVsMaitre() {
 
 
 
+/// @brief Test de l'interface Interaction
+void testInteractions() {
+    // --- Création du joueur avec 2 Pokémon ---
+    vector<string> nomsJoueur = {"Pikachu", "Bulbizarre"};
+    Joueur* joueur = new Joueur("Sacha", nomsJoueur);
 
+    // --- Création du leader d'arène avec une équipe ---
+    vector<string> nomsOndine = {"Carapuce", "Magicarpe"};
+    LeaderGym* ondine = new LeaderGym("Ondine", "Cascade", "Azuria", nomsOndine);
+
+    // --- Création du maître avec une équipe ---
+    vector<string> nomsMaitre = {"Dracolosse", "Ronflex", "Alakazam"};
+    Maitre* maitre = new Maitre("Lance", nomsMaitre);
+
+    // --- Interactions avec les Pokémon du joueur ---
+    cout << "\n[INTERACTIONS AVEC LES POKÉMON DU JOUEUR]" << endl;
+    for (Pokemon* p : joueur->getEquipe()) {
+        cout << "- ";
+        p->interagir();
+    }
+
+    // --- Interactions avec les entraîneurs ---
+    cout << "\n[INTERACTIONS AVEC LES ENTRAÎNEURS]" << endl;
+    cout << "- Ondine : "; ondine->interagir();
+    cout << "- Lance : ";   maitre->interagir();
+
+    // --- Nettoyage ---
+    delete joueur;
+    delete ondine;
+    delete maitre;
+}
 
 int main() {
     //testPokemon();

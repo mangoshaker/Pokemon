@@ -63,11 +63,21 @@ void Entraineur::Entraineur::modifierEquipe(int pos1, int pos2)
     }
 }
 
+/// @brief Change le statut de l'entraineur (vainqueur ou perdant)
+/// @param perdant True si gagnant, False si perdant
+void Entraineur::estGagnant(bool gagner) {
+    gagnant = gagner;
+    if (!gagnant) interagir();
+}
 
-
-string Entraineur::Entraineur::interagir()
+/// @brief Affiche un message quand est perdant
+void Entraineur::Entraineur::interagir()
 {
-    return "L'entraineur " + nom + " vous observe attentivement.";
+    if (!gagnant) {
+        cout<< "L'entraineur " << nom << " dit : Tu m'as vaincu, bien joué !"<<endl;
+    } else {
+        cout<< "Tu ne peux pas interagir avec " << nom << " tant qu’il n’est pas vaincu."<<endl;
+    }
 }
 
 

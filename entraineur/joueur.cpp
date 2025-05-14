@@ -74,15 +74,12 @@ bool Joueur::estPretPourAffronterMaitre() const {
     return true;  // Tous les badges présents
 }
 
-
-
 //Getters
 int Joueur::getNbBadges() const {return nb_badges; }
 int Joueur::getNbGagne() const {return nb_gagne;}
 int Joueur::getNbPerdu() const {return nb_perdu;}
 
 //Setters incrementer 
-void Joueur::ajouterBadges() { nb_badges++; }
 void Joueur::ajouterGagne() { nb_gagne++ ; }
 void Joueur::ajouterPerdu() { nb_perdu++;}
 

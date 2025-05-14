@@ -242,7 +242,6 @@ void Jeu::lancerCombatContreLeader() {
         cout << "\nVictoire ! Vous remportez le badge : " << adversaire->getBadge() << endl;
         if (!joueur->aLeBadge(adversaire->getBadge())) {
             joueur->ajouterBadge(adversaire->getBadge());
-            joueur->ajouterBadges();
         }
         joueur->ajouterGagne();
         adversaire->setGagnant(false); // marque comme battu
@@ -257,9 +256,6 @@ void Jeu::lancerCombatContreLeader() {
 void Jeu::affronterMaitre() {
     if (!joueur->estPretPourAffronterMaitre()) {
         cout << "\nVous devez posseder tous les badges avant d'affronter un Maitre." << endl;
-        cout << "\nAppuyez sur Entree pour revenir au menu...";
-        cin.ignore();
-        cin.get();
         return;
     }
 

@@ -2,6 +2,7 @@
 #define LEADERGYM_H
 
 #include "entraineur.h"
+#include "joueur.h"
 #include <string>
 #include <vector>
 
@@ -17,6 +18,7 @@ namespace leaderGym {
 
         std::string getGymnase() const;
         std::string getBadge() const;
+        void interagirAvecJoueur(const joueur::Joueur* joueur) const;  
 };
 }
 

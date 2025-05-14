@@ -255,13 +255,15 @@ void testEntraineurCie2() {
 
 
 int main() {
+    system("chcp 65001 > nul"); // Active UTF-8 pour la console Windows
     //testPokemon();
     //testTypeChart();
     //testEntraineur(); 
-    //testCombat();   
+    testCombat();   
     //testEntraineurCie();
     //gererCombatFinalJoueurVsMaitre();
-    testEntraineurCie2();
+    //testEntraineurCie2();
+    //testInteractions(); 
 
     system("pause");
     return 0;

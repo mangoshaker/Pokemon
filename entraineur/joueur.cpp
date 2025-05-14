@@ -86,7 +86,26 @@ void Joueur::ajouterBadges() { nb_badges++; }
 void Joueur::ajouterGagne() { nb_gagne++ ; }
 void Joueur::ajouterPerdu() { nb_perdu++;}
 
+/// @brief Affiche les stats du joueur dans la console
+void Joueur::afficherStatistiques() const {
+    std::cout << "\n=== Statistiques de " << getNom() << " ===" << std::endl;
+    std::cout << " - Nombre de victoires : " << nb_gagne << std::endl;
+    std::cout << " - Nombre de defaites  : " << nb_perdu << std::endl;
+    std::cout << " - Badges obtenus (" << nb_badges << ") : ";
 
+    bool aDesBadges = false;
+    for (const auto& pair : badges) {
+        if (pair.second) {
+            std::cout << pair.first << " ";
+            aDesBadges = true;
+        }
+    }
 
+    if (!aDesBadges) {
+        std::cout << "Aucun";
+    }
+
+    std::cout << std::endl;
+}
 
 

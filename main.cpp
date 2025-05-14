@@ -13,6 +13,7 @@
 #include "entraineur/maitreLoader/maitreLoader.h"
 #include "entraineur/maitre.h"
 #include "interaction/interaction.h"
+#include "jeu/jeu.h"
 
 using namespace interaction;
 using namespace std;
@@ -28,6 +29,7 @@ using namespace leaderLoader;
 using namespace leaderGym; 
 using namespace maitre;
 using namespace maitreLoader;
+using namespace jeu;
 
 
 /// @brief Teste la classe Pokemon
@@ -173,7 +175,8 @@ void lancerCombatContreMaitre(Joueur* joueur, const vector<Maitre*>& maitres) {
 
 void gererCombatFinalJoueurVsMaitre() {
     try {
-        vector<Joueur*> joueurs = JoueurLoader::chargerDepuisCSV();
+        JoueurLoader jloader;
+        vector<Joueur*> joueurs = jloader.getJoueurs();
         vector<Maitre*> maitres = MaitreLoader::chargerDepuisCSV();
 
         afficherTousLesJoueurs(joueurs);
@@ -188,8 +191,6 @@ void gererCombatFinalJoueurVsMaitre() {
         cerr << "Erreur : " << e.what() << endl;
     }
 }
-
-
 
 /// @brief Test de l'interface Interaction
 void testInteractions() {
@@ -254,6 +255,11 @@ void testEntraineurCie2() {
 }
 
 
+void testMenu(){
+    Jeu jeu;
+    jeu.StartJeu(); 
+}
+
 int main() {
     //testPokemon();
     //testTypeChart();
@@ -261,8 +267,7 @@ int main() {
     //testCombat();   
     //testEntraineurCie();
     //gererCombatFinalJoueurVsMaitre();
-    testEntraineurCie2();
-
+    testMenu();
     system("pause");
     return 0;
 }

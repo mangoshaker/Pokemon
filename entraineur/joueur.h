@@ -15,6 +15,14 @@ private:
 
 public:
     Joueur(const std::string& nom, const std::vector<std::string>& nomsPokemon);
+   
+    // Nouveaux setters et getters pour le comptage de badge
+    void ajouterBadge(const std::string& badgeType);
+    bool aLeBadge(const std::string& badgeType) const;
+    const std::map<std::string, bool>& getBadges() const;
+    /// @brief check si le joueur a recupere tous les badges
+    /// @return 
+    bool estPretPourAffronterMaitre() const; 
 
 
     
@@ -36,7 +44,8 @@ public:
     void ajouterGagne();
     void ajouterPerdu();
 
-   
+    /// @brief Affiche les stats du joueur dans la console
+    void afficherStatistiques() const;
 
 };
 }

@@ -138,7 +138,6 @@ void testCombat() {
 
 }
 
-
 void afficherTousLesJoueurs(const vector<Joueur*>& joueurs) {
     for (const Joueur* j : joueurs) {
         cout << "Nom : " << j->getNom() << endl;

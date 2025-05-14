@@ -75,7 +75,7 @@ void Jeu::StartJeu() {
     if (!Aff_Joueurs()) {
         cout << "\nAucun joueur disponible. Veuillez en créer un manuellement via joueur.csv." << endl;
         cout << "Fin du jeu." << endl;
-        return; //  Sort du menu (jeu non lancé)
+        return; //  Sort du menu 
     }
 
     int choix = 0;
@@ -111,24 +111,16 @@ void Jeu::MenuPrincipal() {
         clearConsole();
         cout << "\n========= MENU PRINCIPAL =========" << endl;
 
-        // 1. Affichage de base
         cout << "1. Voir l'equipe de Pokemon" << endl;
         cout << "2. Afficher les HP des Pokemon" << endl;
-
-        // 2. Gestion d'equipe
         cout << "3. Changer l'ordre des Pokemon dans l'equipe" << endl;
-
-        // 3. Statistiques
         cout << "4. Afficher les statistiques du joueur" << endl;
 
-        // 4. Combats
+        // Combats
         cout << "5. Affronter un leader de gym" << endl;
         cout << "6. Affronter un Maitre Pokemon" << endl;
 
-        // 5. Interactions
         cout << "7. Interagir avec les Pokemon ou entraineurs vaincus" << endl;
-
-        // 6. Quitter
         cout << "8. Quitter le jeu" << endl;
 
         cout << "Choix : ";
@@ -151,7 +143,7 @@ void Jeu::MenuPrincipal() {
                 joueur->afficherHP();
                 break;
 
-            case 3: {
+            case 3: 
                 clearConsole();
                 joueur->afficherEquipe();
                 int i, j;
@@ -168,7 +160,7 @@ void Jeu::MenuPrincipal() {
                     joueur->modifierEquipe(i - 1, j - 1);
                 }
                 break;
-            }
+            
 
             case 4:
                 clearConsole();
@@ -289,20 +281,20 @@ void Jeu::interagirAvecElements() {
 
     cout << "=== INTERACTIONS DISPONIBLES ===" << endl;
 
-    // 1. Pokémon du joueur
+    // Pokémons du joueur
     cout << "\n[Pokémon dans l'équipe du joueur]" << endl;
     for (Pokemon* p : joueur->getEquipe()) {
         cout << "- ";
-        p->interagir();  // méthode implémentée dans la classe Pokemon
+        p->interagir();  
     }
 
-    // 2. Entraîneurs vaincus
+    // Entraîneurs vaincus
     cout << "\n[Entraîneurs déjà battus]" << endl;
     bool trainerFound = false;
     for (LeaderGym* l : leaders) {
-        if (!l->estGagnant()) {  // donc il a perdu contre le joueur
+        if (!l->estGagnant()) {  
             cout << "- ";
-            l->interagir(joueur);  // méthode d'interaction personnalisée
+            l->interagir(joueur);  
             trainerFound = true;
         }
     }

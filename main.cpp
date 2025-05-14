@@ -215,7 +215,7 @@ void testInteractions() {
 
     // --- Interactions avec les entraîneurs ---
     cout << "\n[INTERACTIONS AVEC LES ENTRAÎNEURS]" << endl;
-    cout << "- Ondine : "; ondine->interagir();
+    cout << "- Ondine : "; ondine->interagir(joueur);
     cout << "- Lance : ";   maitre->interagir();
 
     // --- Nettoyage ---

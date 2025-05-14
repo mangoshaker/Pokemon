@@ -76,14 +76,7 @@ void LeaderGym::interagir(joueur::Joueur* joueurActif) const {
     }
 }
 
-void LeaderGym::interagirAvecJoueur(const joueur::Joueur* joueur) const {
-    int badgesRequis = 6;
-    int restants = badgesRequis - joueur->getNbBadges();
-    if(restants<0) restants=0;
 
-    cout<<" Leader " << getNom() << " : Tu m'as vaincu... bien joue ! Il te reste encore " << restants << " badge(s) à obtenir pour affronter le maitre !" <<endl;
-    
-}
 
 
 

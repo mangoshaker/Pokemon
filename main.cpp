@@ -265,10 +265,10 @@ int main() {
     //testPokemon();
     //testTypeChart();
     //testEntraineur(); 
-    testCombat();   
+    //testCombat();   
     //testEntraineurCie();
     //gererCombatFinalJoueurVsMaitre();
-    //testMenu();
+    testMenu();
     //testInteractions(); 
     system("pause");
     return 0;

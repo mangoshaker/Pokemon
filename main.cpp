@@ -223,6 +223,37 @@ void testInteractions() {
     delete maitre;
 }
 
+/// @brief tester le *1.25 pour les degats de pokemon de maitre
+void testEntraineurCie2() {
+    try {
+        // === 1. Charger les maîtres depuis le fichier CSV
+        vector<Maitre*> maitres = MaitreLoader::chargerDepuisCSV();
+        cout << "=== Maîtres Pokémon chargés ===" << endl;
+
+        for (Maitre* m : maitres) {
+            cout << "\nNom : " << m->getNom() << endl;
+            m->interagir();
+
+            cout << "--- Équipe de " << m->getNom() << " ---" << endl;
+            for (Pokemon* p : m->getEquipe()) {
+                p->infoPokemon();
+                cout << "Dégâts boostés : " << p->getDegat() << endl;
+                cout << "------------------------" << endl;
+            }
+
+            // ✅ 2. Test de l'attaque du Pokémon sélectionné
+            Pokemon* cible = new Pokemon("Pikachu", 35, "Éclair", 55, "Electrik");
+            cout << "\n[TEST] " << m->getNom() << " utilise son premier Pokémon pour attaquer :" << endl;
+            m->getPokemonSelec()->attaquer(cible);
+            delete cible;
+        }
+
+    } catch (const exception& e) {
+        cerr << "\nErreur pendant l'exécution : " << e.what() << endl;
+    }
+}
+
+
 int main() {
     //testPokemon();
     //testTypeChart();
@@ -230,6 +261,8 @@ int main() {
     //testCombat();   
     //testEntraineurCie();
     //gererCombatFinalJoueurVsMaitre();
+    testEntraineurCie2();
+
     system("pause");
     return 0;
 }

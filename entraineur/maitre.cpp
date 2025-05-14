@@ -10,7 +10,6 @@ using namespace pokemon;
 using namespace entraineur;
 using namespace maitre; 
 
-namespace maitre {
 
 /**
  * @brief Constructeur de Maitre : initialise le nom + équipe Pokémon.
@@ -25,16 +24,31 @@ Maitre::Maitre(const string& nom, const vector<string>& nomsPokemon)
     for (const string& nomRecherche : nomsPokemon) {
         for (Pokemon* p : base) {
             if (p->getNom() == nomRecherche) {
+                //creer une copie de pokemon (constructeur de copie)
+                Pokemon* clone = new Pokemon(*p);
+                
+                //test debugging 
+                //float baseDegat = clone->getDegat();
+                
                 //appliquer bonus de degats +25%
-                p->setDegat(p->getDegat() * 1.25f);
-                this->ajouterPokemon(p);
+                clone->setDegat(clone->getDegat() * 1.25f);
+
+                //test debugging
+                //cout << "DEBUG: " << clone->getNom() << " base degat = " << baseDegat 
+                //<< ", boosté = " << clone->getDegat() << endl;
+
+                this->ajouterPokemon(clone);
                 break;
             }
         }
     }
 }
 
+void Maitre::interagir() {
+    cout << "Je suis le Maitre Pokemon !" << endl;
+}
 
 
 
-} // namespace maitre
+
+

@@ -39,8 +39,8 @@ const int Pokemon::getDegat()const{
     return degat;
 }
 
-void Pokemon::setDegat(float d) {
-    this->degat = d;
+void Pokemon::setDegat(float nouveauDegat) {
+    this->degat = nouveauDegat;
 }
 
 /**

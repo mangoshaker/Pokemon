@@ -31,7 +31,7 @@ public:
     /// @return int = dégât provoqué
     const int getDegat()const;
     virtual ~Pokemon();
-    void setDegat(float d);
+    void setDegat(float nouveauDegat);
 
 protected:
     std::string nom;

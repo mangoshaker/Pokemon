@@ -229,7 +229,7 @@ int main() {
     //testEntraineur(); 
     //testCombat();   
     //testEntraineurCie();
-    gererCombatFinalJoueurVsMaitre();
+    //gererCombatFinalJoueurVsMaitre();
     system("pause");
     return 0;
 }

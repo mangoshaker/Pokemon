@@ -33,10 +33,7 @@ void Joueur::ajouterBadges() { nb_badges++; }
 void Joueur::ajouterGagne() { nb_gagne++ ; }
 void Joueur::ajouterPerdu() { nb_perdu++;}
 
-//redefinition de l'interaction
-string Joueur::interagir() {
-    return "Le joueur " + getNom() + " est pret pour le combat.";
-}
+
 
 
 

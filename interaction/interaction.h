@@ -7,8 +7,8 @@ namespace interaction{
     class Interaction {
         public:
             /// @brief Fait interagir un élément du jeu
-            virtual std::string interagir() = 0;            
-            virtual ~Interagir() = default;
+            virtual void interagir() = 0;            
+            virtual ~Interaction() = default;
         };    
 }
 #endif

@@ -65,7 +65,7 @@ void Entraineur::Entraineur::modifierEquipe(int pos1, int pos2)
 
 /// @brief Change le statut de l'entraineur (vainqueur ou perdant)
 /// @param perdant True si gagnant, False si perdant
-void Entraineur::estGagnant(bool gagner) const {
+void Entraineur::estGagnant(bool gagner) {
     gagnant = gagner;
     if (!gagnant) interagir();
 }

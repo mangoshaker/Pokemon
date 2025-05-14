@@ -13,9 +13,7 @@ namespace entraineur{
 class Entraineur : public Interaction{
 protected:
     std::string nom;
-    std::vector<pokemon::Pokemon*> equipe; //max 6 Pokemon
-    bool gagnant = false;
-
+    std::vector<pokemon::Pokemon*> equipe; //max 6 Pokemon   
 public:
     Entraineur(const std::string& nom);
 
@@ -32,10 +30,11 @@ public:
     virtual void interagir() override; 
     /// @brief Change le statut de l'entraineur (vainqueur ou perdant), perdant par défault
     /// @param perdant True si gagnant, False si perdant
-    void Entraineur::estGagnant(bool gagner) const;
+    void estGagnant(bool gagner) ;
 
     virtual ~Entraineur(); //liberation memoire
-
+private:
+    bool gagnant = false;
 };
 }
 

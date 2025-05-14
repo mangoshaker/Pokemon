@@ -15,7 +15,7 @@ public:
     ///@brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
     virtual void attaquer(Pokemon* cible);    
     /// @brief affiche un petit message sur le pokemon
-    void interagir() override;
+    virtual void interagir() override;
     /// @brief affiche les infos des pokemons
     void infoPokemon();
     /// @brief Accède aux types du pokemon

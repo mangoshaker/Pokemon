@@ -306,7 +306,7 @@ void Jeu::interagirAvecElements() {
     for (LeaderGym* l : leaders) {
         if (!l->estGagnant()) {  // donc il a perdu contre le joueur
             cout << "- ";
-            l->interagir();  // méthode d'interaction personnalisée
+            l->interagir(joueur);  // méthode d'interaction personnalisée
             trainerFound = true;
         }
     }

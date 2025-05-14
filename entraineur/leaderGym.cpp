@@ -2,6 +2,7 @@
 #include "../pokemonLoader/pokemonLoader.h"
 #include "../pokemon/pokemon.h"
 #include "entraineur.h"
+#include "joueur.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -11,6 +12,7 @@ using namespace entraineur;
 using namespace pokemonLoader;
 using namespace leaderGym; 
 using namespace pokemon;
+using namespace joueur;
 
 
 /**
@@ -54,5 +56,24 @@ string LeaderGym::getGymnase() const { return gymnase; }
  */
 string LeaderGym::getBadge() const { return badge; }
 
+/// @brief Interragit avec le joueur
+/// @param joueurActif 
+void LeaderGym::interagir(joueur::Joueur* joueurActif) const {
+    cout << nom << " (Leader de " << gymnase << ") : ";
+    
+    if (joueurActif) {
+        int badgesObtenus = joueurActif->getNbBadges();
+        int totalBadges = 6;  
+
+        if (badgesObtenus >= totalBadges) {
+            cout << "Tu as tous les badges. Bonne chance contre le Maitre !" << endl;
+        } else {
+            cout << "Il te reste " << (totalBadges - badgesObtenus)
+                 << " badges avant de pouvoir affronter un Maitre." << endl;
+        }
+    } else {
+        cout << "Reviens me voir quand tu auras progressé !" << endl;
+    }
+}
 
 

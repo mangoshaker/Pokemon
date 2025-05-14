@@ -95,6 +95,7 @@ void Jeu::MenuPrincipal() {
         cout << "\n========= MENU PRINCIPAL =========" << endl;
         cout << "1. Voir l'equipe de Pokemon" << endl;
         cout << "2. Quitter" << endl;
+        cout << "3. Afficher les HP des Pokemon" << endl;
         cout << "Choix : ";
         cin >> choix;
 
@@ -107,12 +108,8 @@ void Jeu::MenuPrincipal() {
         switch (choix) {
             case 1:
                 clearConsole();
-                if (joueur) {
-                    joueur->afficherEquipe();
-                } else {
-                    cout << "Aucun joueur actif." << endl;
-                }
-                cout << "\nAppuyez sur Entrée pour revenir au menu...";
+                joueur->afficherEquipe();
+                cout << "\nAppuyez sur Entree pour revenir au menu...";
                 cin.ignore();
                 cin.get();
                 break;
@@ -122,6 +119,14 @@ void Jeu::MenuPrincipal() {
                 cout << "\nFin de la session. A bientot !" << endl;
                 break;
 
+            case 3:
+                clearConsole();
+                joueur->afficherHP();
+                cout << "\nAppuyez sur Entree pour revenir au menu...";
+                cin.ignore();
+                cin.get();
+                break;
+
             default:
                 cout << "Choix invalide. Reessayer." << endl;
                 break;
@@ -129,6 +134,7 @@ void Jeu::MenuPrincipal() {
 
     } while (choix != 2);
 }
+
 
 
 /// @brief Vide la console

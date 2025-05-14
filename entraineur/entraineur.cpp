@@ -106,18 +106,25 @@ void Entraineur::afficherEquipe() const {
 
     for (size_t i = 0; i < equipe.size(); ++i) {
         Pokemon* p = equipe[i];
-        cout << "[" << i + 1 << "] " << p->getNom() << endl;
-        cout << " - HP : " << p->getHP() << endl;
-        cout << " - Attaque : " << p->getDegat() << endl;
-        cout << " - Type(s) : ";
-        const vector<string>& types = p->getTypes();
-        for (size_t j = 0; j < types.size(); ++j) {
-            cout << types[j];
-            if (j < types.size() - 1) cout << ", ";
-        }
+        p->infoPokemon();
         cout << endl;
     }
 }
+
+/// @brief Affiche les HP des pokémons de l'équipe
+void Entraineur::afficherHP() const {
+    if (equipe.empty()) {
+        cout << "Aucun Pokemon dans l'equipe." << endl;
+        return;
+    }
+
+    cout << "\n--- HP des Pokemon de " << nom << " ---" << endl;
+    for (size_t i = 0; i < equipe.size(); ++i) {
+        Pokemon* p = equipe[i];
+        cout << "[" << i + 1 << "] " << p->getNom() << " - HP : " << p->getHP() << endl;
+    }
+}
+
 
 
 

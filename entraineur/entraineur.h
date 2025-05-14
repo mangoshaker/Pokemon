@@ -27,6 +27,8 @@ public:
     void modifierEquipe(int pos1, int pos2); //changement d'ordre des pokemon deja dans l'equipe
     /// @brief Affiche la composition de l'équipe dans la console
     void afficherEquipe() const;
+    /// @brief Affiche les HP des pokémons de l'équipe
+    void afficherHP() const;
 
     //Methode virtuelle pour l'interaction 
     virtual void interagir() override; 

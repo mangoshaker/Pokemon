@@ -22,8 +22,7 @@ public:
     void ajouterGagne();
     void ajouterPerdu();
 
-    // Redéfinition d'interagir()
-    std::string interagir() override;
+   
 
 };
 }

@@ -32,14 +32,7 @@ Maitre::Maitre(const string& nom, const vector<string>& nomsPokemon)
     }
 }
 
-/**
- * @brief Message d’interaction du Maître Pokémon
- * 
- * @return string Message de défi
- */
-string Maitre::interagir() {
-    return "Je suis le Maître Pokémon ultime. Prépare-toi à l’affrontement !";
-}
+
 
 
 } // namespace maitre

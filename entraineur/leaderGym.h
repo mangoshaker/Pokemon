@@ -17,7 +17,6 @@ namespace leaderGym {
 
         std::string getGymnase() const;
         std::string getBadge() const;
-        std::string interagir() override;
 };
 }
 

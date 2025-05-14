@@ -55,13 +55,4 @@ string LeaderGym::getGymnase() const { return gymnase; }
 string LeaderGym::getBadge() const { return badge; }
 
 
-/**
- * @brief Message personnalisé d’interaction avec le leader.
- * 
- * Simule un message typique de défi entre joueur et leader d’arène.
- * 
- * @return string Message d'interaction
- */
-string leaderGym::LeaderGym::interagir() {
-    return "Je suis le leader de l'arène " + gymnase + " ! Gagne et remporte le badge " + badge + " !";
-}
+

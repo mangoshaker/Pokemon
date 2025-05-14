@@ -9,11 +9,11 @@
 using namespace interaction;
 
 namespace pokemon {
-class Pokemon {
+class Pokemon : public Interaction {
 public:
     Pokemon(std::string Nom, int HP, std::string attaque, int degat, std::string type1, std::string type2="");
     ///@brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
-    virtual void attaquer(Pokemon* cible);
+    virtual void attaquer(Pokemon* cible);    
     /// @brief affiche un petit message sur le pokemon
     void interagir() override;
     /// @brief affiche les infos des pokemons

@@ -25,6 +25,8 @@ Maitre::Maitre(const string& nom, const vector<string>& nomsPokemon)
     for (const string& nomRecherche : nomsPokemon) {
         for (Pokemon* p : base) {
             if (p->getNom() == nomRecherche) {
+                //appliquer bonus de degats +25%
+                p->setDegat(p->getDegat() * 1.25f);
                 this->ajouterPokemon(p);
                 break;
             }

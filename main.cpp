@@ -13,6 +13,7 @@
 #include "entraineur/maitreLoader/maitreLoader.h"
 #include "entraineur/maitre.h"
 #include "interaction/interaction.h"
+#include "jeu/jeu.h"
 
 using namespace interaction;
 using namespace std;
@@ -28,6 +29,7 @@ using namespace leaderLoader;
 using namespace leaderGym; 
 using namespace maitre;
 using namespace maitreLoader;
+using namespace jeu;
 
 
 /// @brief Teste la classe Pokemon
@@ -190,8 +192,6 @@ void gererCombatFinalJoueurVsMaitre() {
     }
 }
 
-
-
 /// @brief Test de l'interface Interaction
 void testInteractions() {
     // --- Création du joueur avec 2 Pokémon ---
@@ -224,6 +224,11 @@ void testInteractions() {
     delete maitre;
 }
 
+void testMenu(){
+    Jeu jeu;
+    jeu.Menu(); 
+}
+
 int main() {
     //testPokemon();
     //testTypeChart();
@@ -231,6 +236,7 @@ int main() {
     //testCombat();   
     //testEntraineurCie();
     //gererCombatFinalJoueurVsMaitre();
+    testMenu();
     system("pause");
     return 0;
 }

@@ -20,9 +20,6 @@ JoueurLoader::JoueurLoader(){
     joueurs = std::move(JoueurLoader::chargerDepuisCSV());
 }
 
-JoueurLoader::JoueurLoader(){
-    joueurs = std::move(JoueurLoader::chargerDepuisCSV());
-}
 
 /**
  * @brief Lecture du fichier joueur.csv et création des objets Joueur

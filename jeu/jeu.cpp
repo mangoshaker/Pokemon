@@ -41,9 +41,9 @@ bool Jeu::Aff_Joueurs() {
 /// @brief Gère le menu et l'affichage console du jeu
 void Jeu::Menu() {
     cout << "===================================" << endl;
-    cout << "         POKÉMON - THE GAME        " << endl;
+    cout << "         POKEMON - THE GAME        " << endl;
     cout << "===================================" << endl;
-    cout << "\nAppuyez sur Entrée pour commencer...";
+    cout << "\nAppuyez sur Entree pour commencer...";
     cin.ignore(); // attend une touche
 
 #ifdef _WIN32
@@ -58,24 +58,29 @@ void Jeu::Menu() {
     if (!Aff_Joueurs()) {
         cout << "\nAucun joueur disponible. Veuillez en créer un manuellement via joueur.csv." << endl;
         cout << "Fin du jeu." << endl;
-        return; // 💥 Sort du menu (jeu non lancé)
+        return; //  Sort du menu (jeu non lancé)
     }
 
     int choix = 0;
     do {
-        cout << "\nSélectionnez un joueur (1 à " << joueurs.size() << ") : ";
+        cout << "\nSelectionnez un joueur (1 à " << joueurs.size() << ") : ";
         cin >> choix;
 
         if (cin.fail() || choix < 1 || choix > (int)joueurs.size()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Choix invalide. Veuillez réessayer." << endl;
+            cout << "Choix invalide. Veuillez reessayer." << endl;
             choix = 0;
         }
 
     } while (choix == 0);
 
     joueur = joueurs[choix - 1];
+    #ifdef _WIN32
+    system("cls");
+    #else
+        system("clear");
+    #endif
     cout << "\nBienvenue, " << joueur->getNom() << " !" << endl;
 
     // TODO : menu principal

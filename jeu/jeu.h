@@ -32,7 +32,16 @@ namespace jeu {
         void MenuPrincipal();
         /// @brief Vide la console
         void clearConsole();
+        /// @brief Affiche les leaders disponibles
+        void afficherLeadersDisponibles() const;
+        /// @brief Lance un combat joueur vs leader
+        void lancerCombatContreLeader();
+        /// @brief Affronte un maitre aléatoire
+        void affronterMaitre();
+        /// @brief Intéragit avec soit un pokemon soit un leader de gym vaincu
+        void interagirAvecElements();
+
     };
-}  // namespace jeu
+}  
 
 #endif

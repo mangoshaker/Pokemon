@@ -32,9 +32,11 @@ public:
 
     //Methode virtuelle pour l'interaction 
     virtual void interagir() override; 
-    /// @brief Change le statut de l'entraineur (vainqueur ou perdant), gagnant par défault
-    /// @param perdant True si gagnant, False si perdant
-    void estGagnant(bool gagner) ;
+    /// @brief Vérifie s'il est gagnat (get)
+    /// @return bool
+    bool estGagnant() const  ;
+    void setGagnant(bool etat);
+
 
     virtual ~Entraineur(); //liberation memoire
 private:

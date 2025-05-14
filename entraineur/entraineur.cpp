@@ -34,6 +34,9 @@ pokemon::Pokemon* Entraineur::Entraineur::getPokemonSelec()
     }
     return nullptr;
 }
+void Entraineur::setGagnant(bool etat) {
+    gagnant = etat;
+}
 
 
 /** 
@@ -66,11 +69,10 @@ void Entraineur::Entraineur::modifierEquipe(int pos1, int pos2)
     }
 }
 
-/// @brief Change le statut de l'entraineur (vainqueur ou perdant)
-/// @param perdant True si gagnant, False si perdant
-void Entraineur::estGagnant(bool gagner) {
-    gagnant = gagner;
-    if (!gagnant) interagir();
+/// @brief Vérifie s'il est gagnat (get)
+/// @return bool
+bool Entraineur::estGagnant() const {
+    return gagnant;
 }
 
 /// @brief Affiche un message quand est perdant

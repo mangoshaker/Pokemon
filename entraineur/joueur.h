@@ -34,7 +34,8 @@ public:
     void ajouterGagne();
     void ajouterPerdu();
 
-   
+    /// @brief Affiche les stats du joueur dans la console
+    void afficherStatistiques() const;
 
 };
 }

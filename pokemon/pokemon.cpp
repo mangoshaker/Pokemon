@@ -39,7 +39,13 @@ const int Pokemon::getDegat()const{
     return degat;
 }
 
-///@brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
+void Pokemon::setDegat(float d) {
+    this->degat = d;
+}
+
+/**
+ *  @brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
+ */
 void Pokemon::attaquer(Pokemon* cible) {
     cout << nom << " attaque " << cible->nom << " avec " << attaque << " !" << endl;
 }

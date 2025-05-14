@@ -30,7 +30,6 @@ public:
     int getNbPerdu() const;
 
     //setters /ajouts
-    void ajouterBadges();
     void ajouterGagne();
     void ajouterPerdu();
 

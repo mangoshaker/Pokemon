@@ -260,7 +260,7 @@ void testMenu(){
     jeu.StartJeu(); 
 }
 
-int main() {
+void Test(){
     system("chcp 65001 > nul"); // Active UTF-8 pour la console Windows
     //testPokemon();
     //testTypeChart();
@@ -268,8 +268,13 @@ int main() {
     //testCombat();   
     //testEntraineurCie();
     //gererCombatFinalJoueurVsMaitre();
-    testMenu();
+    //testMenu();
     //testInteractions(); 
+}
+
+int main() {
+    Jeu jeu;
+    jeu.StartJeu();
     system("pause");
     return 0;
 }

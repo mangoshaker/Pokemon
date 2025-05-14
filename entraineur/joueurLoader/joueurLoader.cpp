@@ -13,11 +13,14 @@ using namespace pokemonLoader;
 using namespace joueurLoader;
 using namespace pokemon; 
 
+JoueurLoader::JoueurLoader(){
+    joueurs = std::move(JoueurLoader::chargerDepuisCSV());
+}
+
 /**
  * @brief lecture de joueur.csv et creation des objets joueur
  * @throws std::runtime_error si le fichier est introuvable ou inaccessible.
  */
-
  vector<Joueur*> JoueurLoader::chargerDepuisCSV() {
     vector<Joueur*> joueurs;
     ifstream fichier("entraineur/Ressources/joueur.csv");
@@ -54,7 +57,6 @@ using namespace pokemon;
   * @brief ajoute un joueur a joueur.csv
   * @throws std::runtime_error si le fichier ne peut pas etre ouvert en ecriture
   */
-
   void JoueurLoader::enregistrerDansCSV(const Joueur& joueur)
   {
     ofstream fichier("entraineur/Ressources/joueur.csv", ios::app); 
@@ -72,3 +74,17 @@ using namespace pokemon;
     fichier.close();
   }
 
+  /// @brief Accède aux joueurs
+  /// @return vecteur : joueurs
+  const vector<Joueur*>& JoueurLoader::getJoueurs() const {
+    return joueurs;
+}
+
+/// @brief Création d'un joueur
+/// @param nouveau Joueur
+void JoueurLoader::ajouterJoueur(Joueur* nouveau) {
+    if (nouveau != nullptr) {
+        joueurs.push_back(nouveau);
+        enregistrerDansCSV(*nouveau);
+    }
+}

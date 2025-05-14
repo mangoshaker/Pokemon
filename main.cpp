@@ -261,6 +261,7 @@ void testMenu(){
 }
 
 int main() {
+    system("chcp 65001 > nul"); // Active UTF-8 pour la console Windows
     //testPokemon();
     //testTypeChart();
     //testEntraineur(); 
@@ -268,6 +269,7 @@ int main() {
     //testEntraineurCie();
     //gererCombatFinalJoueurVsMaitre();
     testMenu();
+    //testInteractions(); 
     system("pause");
     return 0;
 }

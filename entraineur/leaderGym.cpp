@@ -77,3 +77,6 @@ void LeaderGym::interagir(joueur::Joueur* joueurActif) const {
 }
 
 
+
+
+

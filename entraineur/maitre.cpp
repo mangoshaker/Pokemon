@@ -45,7 +45,7 @@ Maitre::Maitre(const string& nom, const vector<string>& nomsPokemon)
 }
 
 void Maitre::interagir() {
-    cout << "Je suis le Maitre Pokemon !" << endl;
+    cout << getNom() << " : Je suis le Maitre Pokemon !" << endl;
 }
 
 

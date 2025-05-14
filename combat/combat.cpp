@@ -72,33 +72,43 @@ Entraineur* Combat::tour_jeu(float HP[2]){
     //initialisation
     int ind_joue = 0;
     int ind_adver = 0;
+    int tour_count = 1;
 
     //jeu
     while(!finJeu(HP,ind_joue,ind_adver)){
+        cout << "\n===== TOUR " << tour_count << " =====" << endl;
         bool perdu = false;
+
         if(this->tour == 0 ){ //Joueur qui attaque
+            cout<<"[Joueur] ";
             eq_joue[ind_joue]->attaquer(eq_adver[ind_adver]);
             perdu=combattre(eq_joue[ind_joue],eq_adver[ind_adver],1 , HP);
             this->tour=1;
         } 
         else {  //Adversaire qui attaque
+            cout<<"[Rival] ";
             eq_adver[ind_adver]->attaquer(eq_joue[ind_joue]);
             perdu=combattre(eq_adver[ind_adver],eq_joue[ind_joue],0,HP);
             this->tour=0;
         }
+
         if (perdu){
             if (this->tour==1 && ind_adver<eq_adver.size()-1) {
                 ind_adver++;
                 HP[1]=eq_adver[ind_adver]->getHP();
+                cout<<"-> Nouveau Pokemon de [Rival] : "<<eq_adver[ind_adver]->getNom() << " entre en jeu !" <<endl;
             }
             else if (this->tour==0 && ind_joue +1<eq_joue.size()-1) {
                 ind_joue++;
                 HP[0]=eq_joue[ind_joue]->getHP();
+                cout<<"-> Nouveau Pokemon de [Joueur] : " << eq_joue[ind_joue]->getNom() << " entre en jeu !" << endl;
             }
         }
+        tour_count++; 
     }
     
     //renvoi du gagnant de la partie
+    cout << "\n [VICTOIRE] " << (HP[0] <= 0 ? adversaire->getNom() : joueur->getNom()) << " a gagné le combat !" << endl;
     if(HP[0]<=0) return adversaire;
     else return joueur;
 }

@@ -273,6 +273,7 @@ void Test(){
 }
 
 int main() {
+    system("chcp 65001 > nul");
     Jeu jeu;
     jeu.StartJeu();
     system("pause");

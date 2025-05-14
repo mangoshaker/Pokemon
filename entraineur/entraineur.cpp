@@ -1,4 +1,5 @@
 #include "entraineur.h"
+#include "../pokemon/pokemon.h"
 #include <iostream>
 #include <algorithm> //pour std::swap
 #include <string>
@@ -6,6 +7,8 @@
 
 using namespace std;
 using namespace entraineur;
+using namespace pokemon;
+
 Entraineur::Entraineur::Entraineur(const string& Nom)
 {
     nom=Nom; 
@@ -30,6 +33,9 @@ pokemon::Pokemon* Entraineur::Entraineur::getPokemonSelec()
         return equipe[0];
     }
     return nullptr;
+}
+void Entraineur::setGagnant(bool etat) {
+    gagnant = etat;
 }
 
 
@@ -63,11 +69,10 @@ void Entraineur::Entraineur::modifierEquipe(int pos1, int pos2)
     }
 }
 
-/// @brief Change le statut de l'entraineur (vainqueur ou perdant)
-/// @param perdant True si gagnant, False si perdant
-void Entraineur::estGagnant(bool gagner) {
-    gagnant = gagner;
-    if (!gagnant) interagir();
+/// @brief Vérifie s'il est gagnat (get)
+/// @return bool
+bool Entraineur::estGagnant() const {
+    return gagnant;
 }
 
 /// @brief Affiche un message quand est perdant
@@ -92,6 +97,36 @@ Entraineur::~Entraineur() {
         }
     }
 }
+/// @brief Affiche la composition de l'équipe dans la console
+void Entraineur::afficherEquipe() const {
+    if (equipe.empty()) {
+        cout << "Aucun Pokemon dans l'equipe." << endl;
+        return;
+    }
+
+    cout << "\n--- Equipe de " << nom << " ---" << endl;
+
+    for (size_t i = 0; i < equipe.size(); ++i) {
+        Pokemon* p = equipe[i];
+        p->infoPokemon();
+        cout << endl;
+    }
+}
+
+/// @brief Affiche les HP des pokémons de l'équipe
+void Entraineur::afficherHP() const {
+    if (equipe.empty()) {
+        cout << "Aucun Pokemon dans l'equipe." << endl;
+        return;
+    }
+
+    cout << "\n--- HP des Pokemon de " << nom << " ---" << endl;
+    for (size_t i = 0; i < equipe.size(); ++i) {
+        Pokemon* p = equipe[i];
+        cout << "[" << i + 1 << "] " << p->getNom() << " - HP : " << p->getHP() << endl;
+    }
+}
+
 
 
 

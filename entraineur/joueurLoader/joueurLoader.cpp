@@ -37,6 +37,8 @@ JoueurLoader::JoueurLoader(){
     getline(fichier, ligne); // ignorer l'en-tête
 
     while (getline(fichier, ligne)) {
+        if (ligne.empty()) continue;
+        
         stringstream ss(ligne);
         string nom;
         vector<string> nomsPokemon;

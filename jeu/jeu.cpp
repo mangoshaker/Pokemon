@@ -38,8 +38,8 @@ bool Jeu::Aff_Joueurs() {
     return true;
 }
 
-/// @brief Gère le menu et l'affichage console du jeu
-void Jeu::Menu() {
+/// @brief Gère le jeu
+void Jeu::StartJeu() {
     cout << "===================================" << endl;
     cout << "         POKEMON - THE GAME        " << endl;
     cout << "===================================" << endl;
@@ -63,7 +63,7 @@ void Jeu::Menu() {
 
     int choix = 0;
     do {
-        cout << "\nSelectionnez un joueur (1 à " << joueurs.size() << ") : ";
+        cout << "\nSelectionnez un joueur (1 a " << joueurs.size() << ") : ";
         cin >> choix;
 
         if (cin.fail() || choix < 1 || choix > (int)joueurs.size()) {
@@ -83,6 +83,60 @@ void Jeu::Menu() {
     #endif
     cout << "\nBienvenue, " << joueur->getNom() << " !" << endl;
 
-    // TODO : menu principal
+    MenuPrincipal();
 }
 
+/// @brief Affiche et gère le menu principal
+void Jeu::MenuPrincipal() {
+    int choix = 0;
+
+    do {
+        clearConsole();
+        cout << "\n========= MENU PRINCIPAL =========" << endl;
+        cout << "1. Voir l'equipe de Pokemon" << endl;
+        cout << "2. Quitter" << endl;
+        cout << "Choix : ";
+        cin >> choix;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            choix = -1;
+        }
+
+        switch (choix) {
+            case 1:
+                clearConsole();
+                if (joueur) {
+                    joueur->afficherEquipe();
+                } else {
+                    cout << "Aucun joueur actif." << endl;
+                }
+                cout << "\nAppuyez sur Entrée pour revenir au menu...";
+                cin.ignore();
+                cin.get();
+                break;
+
+            case 2:
+                clearConsole();
+                cout << "\nFin de la session. A bientot !" << endl;
+                break;
+
+            default:
+                cout << "Choix invalide. Reessayer." << endl;
+                break;
+        }
+
+    } while (choix != 2);
+}
+
+
+/// @brief Vide la console
+void Jeu::clearConsole() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+    }
+    

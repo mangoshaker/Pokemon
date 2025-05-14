@@ -1,4 +1,5 @@
 #include "entraineur.h"
+#include "../pokemon/pokemon.h"
 #include <iostream>
 #include <algorithm> //pour std::swap
 #include <string>
@@ -6,6 +7,8 @@
 
 using namespace std;
 using namespace entraineur;
+using namespace pokemon;
+
 Entraineur::Entraineur::Entraineur(const string& Nom)
 {
     nom=Nom; 
@@ -90,6 +93,29 @@ Entraineur::~Entraineur() {
             delete p;
             p = nullptr;
         }
+    }
+}
+/// @brief Affiche la composition de l'équipe dans la console
+void Entraineur::afficherEquipe() const {
+    if (equipe.empty()) {
+        cout << "Aucun Pokemon dans l'equipe." << endl;
+        return;
+    }
+
+    cout << "\n--- Equipe de " << nom << " ---" << endl;
+
+    for (size_t i = 0; i < equipe.size(); ++i) {
+        Pokemon* p = equipe[i];
+        cout << "[" << i + 1 << "] " << p->getNom() << endl;
+        cout << " - HP : " << p->getHP() << endl;
+        cout << " - Attaque : " << p->getDegat() << endl;
+        cout << " - Type(s) : ";
+        const vector<string>& types = p->getTypes();
+        for (size_t j = 0; j < types.size(); ++j) {
+            cout << types[j];
+            if (j < types.size() - 1) cout << ", ";
+        }
+        cout << endl;
     }
 }
 

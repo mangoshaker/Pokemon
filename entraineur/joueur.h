@@ -15,9 +15,7 @@ private:
 
 public:
     Joueur(const std::string& nom, const std::vector<std::string>& nomsPokemon);
-
-
-    
+   
     // Nouveaux setters et getters pour le comptage de badge
     void ajouterBadge(const std::string& badgeType);
     bool aLeBadge(const std::string& badgeType) const;

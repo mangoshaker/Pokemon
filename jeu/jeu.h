@@ -21,12 +21,17 @@ namespace jeu {
         /// @brief Affiche tous les joueurs
         /// @return True s'il y a des joueurs, False sinon
         bool Aff_Joueurs();
-        /// @brief Gère le menu et l'affichage console du jeu
-        void Menu();
+        /// @brief Gère le jeu
+        void StartJeu();
+        
 
     private:
         std::vector<Joueur*> joueurs;
         joueur::Joueur* joueur;
+        /// @brief Affiche et gère le menu principal
+        void MenuPrincipal();
+        /// @brief Vide la console
+        void clearConsole();
     };
 }  // namespace jeu
 

@@ -25,6 +25,8 @@ public:
     //Gestion equipe 
     void ajouterPokemon(pokemon::Pokemon* p);  //ajout d'un nouveau pokemon dans l'equipe de joueur
     void modifierEquipe(int pos1, int pos2); //changement d'ordre des pokemon deja dans l'equipe
+    /// @brief Affiche la composition de l'équipe dans la console
+    void afficherEquipe() const;
 
     //Methode virtuelle pour l'interaction 
     virtual void interagir() override; 

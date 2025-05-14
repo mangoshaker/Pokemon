@@ -226,7 +226,7 @@ void testInteractions() {
 
 void testMenu(){
     Jeu jeu;
-    jeu.Menu(); 
+    jeu.StartJeu(); 
 }
 
 int main() {

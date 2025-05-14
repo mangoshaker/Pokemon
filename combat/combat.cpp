@@ -25,6 +25,15 @@ Entraineur* Combat::start_partie(){
     int compteur = 0;
     cout << "Debut du combat entre "<< joueur->getNom()<< " et "<< adversaire->getNom()<< endl;
     
+    
+    cout << "\n==============================" << endl;
+    cout << "Composition des équipes :" << endl;
+    cout << "==============================" << endl;
+
+    joueur->afficherEquipe();
+    adversaire->afficherEquipe();
+
+
     float HP[2] = {static_cast<float>(eq_joue[0]->getHP()), static_cast<float>(eq_adver[0]->getHP())};    //score joueur , score adversaire
 
     Entraineur* gagnant = tour_jeu(HP);

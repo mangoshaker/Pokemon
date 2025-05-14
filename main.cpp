@@ -135,13 +135,69 @@ void testCombat() {
 }
 
 
+void afficherTousLesJoueurs(const vector<Joueur*>& joueurs) {
+    for (const Joueur* j : joueurs) {
+        cout << "Nom : " << j->getNom() << endl;
+        cout << "Badges : ";
+        for (const auto& [type, possede] : j->getBadges()) {
+            cout << type << "=" << (possede ? "1" : "0") << "  ";
+        }
+        cout << "\n-----------------------------\n";
+    }
+}
+
+bool testerEligibilitePourMaitre(const Joueur* joueur) {
+    if (joueur->estPretPourAffronterMaitre()) {
+        cout << "[V] " << joueur->getNom() << " peut affronter le Maître !" << endl;
+        return true;
+    } else {
+        cout << "[X] " << joueur->getNom() << " n’a pas encore tous les badges." << endl;
+        return false;
+    }
+}
+
+void lancerCombatContreMaitre(Joueur* joueur, const vector<Maitre*>& maitres) {
+    if (maitres.empty()) {
+        cerr << "Aucun Maître disponible pour le combat." << endl;
+        return;
+    }
+
+    Maitre* maitre = maitres[0];
+    cout << "\n Début du combat entre " << joueur->getNom() << " et le Maître " << maitre->getNom() << " !" << endl;
+
+    Combat combat(joueur, maitre);
+    combat.start_partie();
+}
+
+void gererCombatFinalJoueurVsMaitre() {
+    try {
+        vector<Joueur*> joueurs = JoueurLoader::chargerDepuisCSV();
+        vector<Maitre*> maitres = MaitreLoader::chargerDepuisCSV();
+
+        afficherTousLesJoueurs(joueurs);
+
+        for (Joueur* j : joueurs) {
+            if (j->getNom() == "Sacha" && testerEligibilitePourMaitre(j)) {
+                lancerCombatContreMaitre(j, maitres);
+            }
+        }
+
+    } catch (const exception& e) {
+        cerr << "Erreur : " << e.what() << endl;
+    }
+}
+
+
+
+
 
 int main() {
     //testPokemon();
     //testTypeChart();
     //testEntraineur(); 
     //testCombat();   
-    testEntraineurCie();
+    //testEntraineurCie();
+    gererCombatFinalJoueurVsMaitre();
     system("pause");
     return 0;
 }

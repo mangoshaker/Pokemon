@@ -173,7 +173,8 @@ void lancerCombatContreMaitre(Joueur* joueur, const vector<Maitre*>& maitres) {
 
 void gererCombatFinalJoueurVsMaitre() {
     try {
-        vector<Joueur*> joueurs = JoueurLoader::chargerDepuisCSV();
+        JoueurLoader jloader;
+        vector<Joueur*> joueurs = jloader.getJoueurs();
         vector<Maitre*> maitres = MaitreLoader::chargerDepuisCSV();
 
         afficherTousLesJoueurs(joueurs);

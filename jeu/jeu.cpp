@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 #include "../entraineur/entraineur.h"
 #include "../pokemon/pokemon.h"
 #include "../pokemon/typeChart.h"
@@ -43,36 +44,40 @@ void Jeu::Menu() {
     cout << "         POKÉMON - THE GAME        " << endl;
     cout << "===================================" << endl;
     cout << "\nAppuyez sur Entrée pour commencer...";
-    cin.ignore(); // attend que l'utilisateur appuie sur "entrée"
+    cin.ignore(); // attend une touche
 
-    system("cls"); // nettoie la console (Windows) ; sur Linux : system("clear");
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 
     cout << "\nChargement des joueurs...\n" << endl;
 
-    // Afficher les joueurs existants
-    if (Aff_Joueurs()) {
-        int choix = 0;
-        do {
-            cout << "\nSélectionnez un joueur existant (1 à " << joueurs.size() << "), ou 0 pour en créer un nouveau : ";
-            cin >> choix;
-
-            if (choix < 0 || choix > (int)joueurs.size()) {
-                cout << "Choix invalide, réessayez." << endl;
-            }
-
-        } while (choix < 0 || choix > (int)joueurs.size());
-
-        if (choix == 0) {
-            creerNouveauJoueur();
-        } else {
-            joueur = joueurs[choix - 1];
-            cout << "\nBienvenue, " << joueur->getNom() << " !" << endl;
-        }
-
-    } else {
-        // Aucun joueur => créer un nouveau
-        creerNouveauJoueur();
+    // Afficher les joueurs
+    if (!Aff_Joueurs()) {
+        cout << "\nAucun joueur disponible. Veuillez en créer un manuellement via joueur.csv." << endl;
+        cout << "Fin du jeu." << endl;
+        return; // 💥 Sort du menu (jeu non lancé)
     }
 
-    // Optionnel : afficher un menu principal ensuite
+    int choix = 0;
+    do {
+        cout << "\nSélectionnez un joueur (1 à " << joueurs.size() << ") : ";
+        cin >> choix;
+
+        if (cin.fail() || choix < 1 || choix > (int)joueurs.size()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Choix invalide. Veuillez réessayer." << endl;
+            choix = 0;
+        }
+
+    } while (choix == 0);
+
+    joueur = joueurs[choix - 1];
+    cout << "\nBienvenue, " << joueur->getNom() << " !" << endl;
+
+    // TODO : menu principal
 }
+

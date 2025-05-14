@@ -20,7 +20,7 @@
         "entraineur/joueurLoader/joueurLoader.cpp",
         "entraineur/leaderLoader/leaderLoader.cpp",
         "entraineur/maitreLoader/maitreLoader.cpp",
-                "jeu/jeu.cpp",
+        "jeu/jeu.cpp",
         "-o",
         "main.exe"
       ],

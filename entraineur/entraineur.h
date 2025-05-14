@@ -25,16 +25,22 @@ public:
     //Gestion equipe 
     void ajouterPokemon(pokemon::Pokemon* p);  //ajout d'un nouveau pokemon dans l'equipe de joueur
     void modifierEquipe(int pos1, int pos2); //changement d'ordre des pokemon deja dans l'equipe
+    /// @brief Affiche la composition de l'équipe dans la console
+    void afficherEquipe() const;
+    /// @brief Affiche les HP des pokémons de l'équipe
+    void afficherHP() const;
 
     //Methode virtuelle pour l'interaction 
     virtual void interagir() override; 
-    /// @brief Change le statut de l'entraineur (vainqueur ou perdant), perdant par défault
-    /// @param perdant True si gagnant, False si perdant
-    void estGagnant(bool gagner) ;
+    /// @brief Vérifie s'il est gagnat (get)
+    /// @return bool
+    bool estGagnant() const  ;
+    void setGagnant(bool etat);
+
 
     virtual ~Entraineur(); //liberation memoire
 private:
-    bool gagnant = false;
+    bool gagnant = true;
 };
 }
 

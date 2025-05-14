@@ -43,9 +43,7 @@ void Pokemon::setDegat(float nouveauDegat) {
     this->degat = nouveauDegat;
 }
 
-/**
- *  @brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
- */
+///@brief affiche une phrase signifiant l'attaque - fct peut etre à modifier
 void Pokemon::attaquer(Pokemon* cible) {
     cout << nom << " attaque " << cible->nom << " avec " << attaque << " !" << endl;
 }

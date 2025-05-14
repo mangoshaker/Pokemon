@@ -21,7 +21,7 @@ Combat::Combat(Entraineur* Joueur, Entraineur* Adversaire){
 }
 
 /// @brief Lance la partie
-void Combat::start_partie(){
+Entraineur* Combat::start_partie(){
     int compteur = 0;
     cout << "Debut du combat entre "<< joueur->getNom()<< " et "<< adversaire->getNom()<< endl;
     
@@ -30,7 +30,7 @@ void Combat::start_partie(){
     Entraineur* gagnant = tour_jeu(HP);
 
     cout <<gagnant->getNom()<<" a gagne la partie !"<<endl;
-
+    return gagnant;
 }
 
 /// @brief Simule l'attaque d'un pokémon, calcule les dégats engendrés et déduit le score final des HP du defenseur (0 si perdu);

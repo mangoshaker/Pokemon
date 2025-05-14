@@ -16,11 +16,16 @@ using namespace pokemon;
 vector<string> liste_badges = {"Feu", "Eau", "Roche", "Plante", "Électrik", "Psy"};
 
 
+JoueurLoader::JoueurLoader(){
+    joueurs = std::move(JoueurLoader::chargerDepuisCSV());
+}
+
+
 /**
  * @brief Lecture du fichier joueur.csv et création des objets Joueur
  * @throws std::runtime_error si le fichier est introuvable ou mal formé.
  */
-vector<Joueur*> JoueurLoader::chargerDepuisCSV() {
+ vector<Joueur*> JoueurLoader::chargerDepuisCSV() {
     vector<Joueur*> joueurs;
     ifstream fichier("entraineur/Ressources/joueur.csv");
 
@@ -68,12 +73,14 @@ vector<Joueur*> JoueurLoader::chargerDepuisCSV() {
     return joueurs;
 }
 
-/**
- * @brief Enregistre un joueur dans joueur.csv
- * @throws std::runtime_error si le fichier est inaccessible
- */
-void JoueurLoader::enregistrerDansCSV(const Joueur& joueur) {
-    ofstream fichier("entraineur/Ressources/joueur.csv", ios::app); // append mode
+ /**
+  * @brief ajoute un joueur a joueur.csv
+  * @throws std::runtime_error si le fichier ne peut pas etre ouvert en ecriture
+  */
+  void JoueurLoader::enregistrerDansCSV(const Joueur& joueur)
+  {
+    ofstream fichier("entraineur/Ressources/joueur.csv", ios::app); 
+    //ouvrir le fichier joueur.csv en mode ajour (append) pour enregistrer un nouveau joueur
 
     if (!fichier.is_open()) {
         throw runtime_error("Erreur : impossible d'écrire dans joueur.csv");
@@ -99,4 +106,18 @@ void JoueurLoader::enregistrerDansCSV(const Joueur& joueur) {
 
     fichier << "\n";
     fichier.close();
+}
+  /// @brief Accède aux joueurs
+  /// @return vecteur : joueurs
+  const vector<Joueur*>& JoueurLoader::getJoueurs() const {
+    return joueurs;
+}
+
+/// @brief Création d'un joueur
+/// @param nouveau Joueur
+void JoueurLoader::ajouterJoueur(Joueur* nouveau) {
+    if (nouveau != nullptr) {
+        joueurs.push_back(nouveau);
+        enregistrerDansCSV(*nouveau);
+    }
 }

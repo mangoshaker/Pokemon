@@ -16,7 +16,8 @@ namespace combat{
         public:
             Combat(Entraineur* Joueur, Entraineur* Adversaire);
             /// @brief Lance la partie
-            void start_partie();
+            /// @return Renvoie le gagnant
+            Entraineur* start_partie();
             ~Combat();
         
         private:
